@@ -1,26 +1,75 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ─── Brand Design Tokens ──────────────────────────────────────────────── */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --color-brand-indigo: #1a237e;
+  --color-brand-gold: #ffd700;
+  --color-brand-light-gray: #f8f9fa;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─── Base ──────────────────────────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+/* ─── Custom Utilities ──────────────────────────────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+}
+
+.bg-brand-indigo {
+  background: var(--color-brand-indigo);
+}
+
+.bg{
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+}
+
+.btn-gold {
+  background-color: #ffd700;
+  color: #1a237e;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-gold:hover {
+  background-color: #fbc02d;
+  transform: translateY(-2px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-active {
+  border-bottom: 3px solid #ffd700;
+  color: #ffd700 !important;
 }

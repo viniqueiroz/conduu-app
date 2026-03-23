@@ -1,12 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const LeadGenSection = () => {
     const [userType, setUserType] = useState('aluno');
     const [isLoading, setIsLoading] = useState(false);
     const [formStatus, setFormStatus] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
     const [whatsapp, setWhatsapp] = useState('');
+
+    useEffect(() => {
+        const handleUserTypeChange = (e: Event) => {
+            const customEvent = e as CustomEvent<string>;
+            if (customEvent.detail === 'aluno' || customEvent.detail === 'instrutor') {
+                setUserType(customEvent.detail);
+            }
+        };
+        window.addEventListener('changeUserType', handleUserTypeChange);
+        return () => window.removeEventListener('changeUserType', handleUserTypeChange);
+    }, []);
 
     const handleWhatsappChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let value = e.target.value.replace(/\D/g, '');

@@ -28,7 +28,7 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li><a className="text-slate-500 hover:text-brand-indigo" href="#students">Para Alunos</a></li>
                             <li><a className="text-slate-500 hover:text-brand-indigo" href="#instructors">Para Instrutores</a></li>
-                            <li><Link className="text-slate-500 hover:text-brand-indigo" href="#">Como Funciona</Link></li>
+                            <li><Link className="text-slate-500 hover:text-brand-indigo" href="/como-funciona">Como Funciona</Link></li>
                         </ul>
                     </div>
                     <div>
@@ -56,8 +56,8 @@ const Footer = () => {
                 <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
                     <p>© 2026 Conduu. Todos os direitos reservados.</p>
                     <div className="flex gap-6">
-                        <Link className="hover:text-brand-indigo" href="#">Termos de Uso</Link>
-                        <Link className="hover:text-brand-indigo" href="#">Privacidade</Link>
+                        <Link className="hover:text-brand-indigo" href="/termos-de-uso">Termos de Uso</Link>
+                        <Link className="hover:text-brand-indigo" href="/privacidade">Privacidade</Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 
 const HeroSection = () => {
+  const handleTabChange = (type: string) => {
+    window.dispatchEvent(new CustomEvent('changeUserType', { detail: type }));
+  };
+
   return (
     <section className="hero-gradient relative overflow-hidden py-16 lg:py-24 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -13,8 +19,20 @@ const HeroSection = () => {
               Encontre instrutores homologados, agende suas aulas práticas pelo celular e acompanhe sua evolução até a aprovação.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a className="btn-gold px-8 py-4 rounded-xl font-bold text-lg text-center shadow-lg shadow-black/10" href="#register">Quero aprender</a>
-              <a className="bg-white/10 hover:bg-white/20 border border-white/30 px-8 py-4 rounded-xl font-bold text-lg text-center backdrop-blur-sm transition-all" href="#register">Sou instrutor</a>
+              <a 
+                className="btn-gold px-8 py-4 rounded-xl font-bold text-lg text-center shadow-lg shadow-black/10" 
+                href="#register"
+                onClick={() => handleTabChange('aluno')}
+              >
+                Quero aprender
+              </a>
+              <a 
+                className="bg-white/10 hover:bg-white/20 border border-white/30 px-8 py-4 rounded-xl font-bold text-lg text-center backdrop-blur-sm transition-all" 
+                href="#register"
+                onClick={() => handleTabChange('instrutor')}
+              >
+                Sou instrutor
+              </a>
             </div>
           </div>
           <div className="relative">
